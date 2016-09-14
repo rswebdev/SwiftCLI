@@ -194,25 +194,9 @@ extension CLIResult {
 
 #if os(Linux)
 typealias Regex = RegularExpression
-
-extension FileHandle {
-    static var stdInput: FileHandle {
-        return standardInput()
-    }
-    
-    static var stdError: FileHandle {
-        return standardError()
-    }
-}
-
-extension ProcessInfo {
-    static var info: ProcessInfo {
-        return processInfo()
-    }
-}
-
 #else
 typealias Regex = NSRegularExpression
+#endif
 
 extension FileHandle {
     static var stdInput: FileHandle {
@@ -229,5 +213,3 @@ extension ProcessInfo {
         return processInfo
     }
 }
-
-#endif
