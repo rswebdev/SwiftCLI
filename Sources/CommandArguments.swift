@@ -53,7 +53,7 @@ public class CommandArguments {
         if let arg = keyedArguments[key] as? String {
             return arg
         }
-        return nil
+        else { return nil }
     }
     
     /**
@@ -76,7 +76,7 @@ public class CommandArguments {
         if let arg = keyedArguments[key] as? [String] {
             return arg
         }
-        return nil
+        else { return nil }
     }
     
 }
