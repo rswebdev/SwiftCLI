@@ -55,13 +55,14 @@ public class RawArguments {
         
         let arguments: [String] = argumentMatches.map {(match) in
             let matchRange = match.range
-            var argument = argumentString.substring(from: argumentString.index(argumentString.startIndex, offsetBy: matchRange.location))
-            argument = argument.substring(to: argument.index(argument.startIndex, offsetBy: matchRange.length))
+            let startIndex = argumentString.index(argumentString.startIndex, offsetBy: matchRange.location)
+            
+            var argument = argumentString[startIndex...argumentString.index(startIndex, offsetBy: matchRange.length - 1)]
 
             if argument.hasPrefix("\"") {
-                argument = argument.substring(with: Range(uncheckedBounds: (lower: argument.index(argument.startIndex, offsetBy: 1), upper: argument.index(argument.endIndex, offsetBy: -1))))
+                argument = argument[Range(uncheckedBounds: (lower: argument.index(argument.startIndex, offsetBy: 1), upper: argument.index(argument.endIndex, offsetBy: -1)))]
             }
-            return argument
+            return String(argument)
         }
 
         self.init(arguments: arguments, with: argumentString)

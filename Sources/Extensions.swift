@@ -11,8 +11,7 @@ extension String {
     func trimEnds(by trimLength: Int) -> String {
         let firstIndex = index(startIndex, offsetBy: trimLength)
         let lastIndex = index(endIndex, offsetBy: -trimLength)
-        
-        return substring(with: Range(uncheckedBounds: (lower: firstIndex, upper: lastIndex)))
+        return String(self[firstIndex...lastIndex])
     }
     
     func substring(from: Int?, to: Int?) -> String {
@@ -48,7 +47,7 @@ extension String {
             endIndex = self.endIndex
         }
         
-        return self[startIndex ..< endIndex]
+        return String(self[startIndex ..< endIndex])
     }
     
     func substring(from: Int) -> String {

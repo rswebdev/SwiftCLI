@@ -96,8 +96,7 @@ extension OptionCommand {
         
         if helpOnHFlag {
             let helpFlags = ["-h", "--help"]
-            
-            options.add(flags: helpFlags, usage: "Show help information for this command") {(flag) in
+            options.add(flags: helpFlags, usage: "Show help information for this command") {
                 print(CLI.usageStatementGenerator.generateUsageStatement(for: self, optionRegistry: options))
             }
 
