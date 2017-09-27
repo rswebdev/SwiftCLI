@@ -53,7 +53,7 @@ public class RawArguments {
         
         let argumentMatches = regex.matches(in: argumentString, options: [], range: NSRange(location: 0, length: argumentString.utf8.count))
         
-        var arguments: [String] = argumentMatches.map {(match) in
+        let arguments: [String] = argumentMatches.map {(match) in
             let matchRange = match.range
             var argument = argumentString.substring(from: argumentString.index(argumentString.startIndex, offsetBy: matchRange.location))
             argument = argument.substring(to: argument.index(argument.startIndex, offsetBy: matchRange.length))

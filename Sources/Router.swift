@@ -21,7 +21,7 @@ public class DefaultRouter: Router {
     }
     
     public func route(commands: [Command], aliases: [String: String], arguments: inout RawArguments) -> Command? {
-        guard var commandNameArgument = arguments.unclassifiedArguments.first else {
+        guard let commandNameArgument = arguments.unclassifiedArguments.first else {
             return fallbackCommand
         }
         
@@ -52,7 +52,7 @@ public class DefaultRouter: Router {
         }
         
         if let command = commands.first(where: { $0.name == matchingName[0] }) {
-            guard var revisedCommandNameArgument = arguments.unclassifiedArguments.first else {
+            guard let revisedCommandNameArgument = arguments.unclassifiedArguments.first else {
                 return fallbackCommand
             }
             revisedCommandNameArgument.classification = .commandName

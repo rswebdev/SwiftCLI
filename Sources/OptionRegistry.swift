@@ -50,7 +50,7 @@ public class OptionRegistry {
     internal var requiredOptionGroups: [Option] {
         var groupedRequiredOptions: [Option] = []
         var groupedOptionStrings: [String] = []
-        var requiredOptions = options.filter() { $0.required == true }
+        let requiredOptions = options.filter() { $0.required == true }
 
         for group in (groups.filter() { $0.required == true }) {
             let groupName: String = group.name
@@ -81,7 +81,7 @@ public class OptionRegistry {
     internal var conflictingOptionGroups: [Option] {
         var groupedConflictingOptions: [Option] = []
         var groupedOptionStrings: [String] = []
-        var conflictingOptions = options.filter() { $0.conflicting == true }
+        let conflictingOptions = options.filter() { $0.conflicting == true }
         
         for group in (groups.filter() {$0.conflicting == true}) {
             let groupName: String = group.name
