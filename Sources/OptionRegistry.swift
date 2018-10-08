@@ -71,7 +71,7 @@ public class OptionRegistry {
             let groupOptions = options.filter() { $0.group == groupName }
             for groupOption in groupOptions {
             
-                let length = (groupOption.usage.components(separatedBy: "__SPACING_PLACEHOLDER__")[0]).characters.count
+                let length = (groupOption.usage.components(separatedBy: "__SPACING_PLACEHOLDER__")[0]).count
                 if (length > tempMaxLength) { tempMaxLength = length }
             
             }

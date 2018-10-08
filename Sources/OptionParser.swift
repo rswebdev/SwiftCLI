@@ -42,7 +42,7 @@ public class DefaultOptionParser: OptionParser {
             let value = option.value
             return [value]
         }).joined(separator: " ")
-        let optionsRange = NSRange(location: 0, length: optionsString.replacingOccurrences(of: " ", with: "  ").characters.count )
+        let optionsRange = NSRange(location: 0, length: optionsString.replacingOccurrences(of: " ", with: "  ").count )
         
         for requiredGroup in requiredGroups {
             var groupName: String = ""
@@ -146,7 +146,7 @@ public struct IncorrectOptionUsage {
             message += "Missing options:"
             for option in requiredOptionsMissing.sorted(by:{$0.key < $1.key}) {
                 let temp = (option.value).replacingOccurrences(of:"|", with:", ", options: [])
-                let length = (option.key.characters.count + 3)
+                let length = (option.key.count + 3)
                 let spacing = String(repeating: " ", count: maxSpacing - length)
                 message += "\n<\(option.key)>:\(spacing)\(temp)"
             }
@@ -157,7 +157,7 @@ public struct IncorrectOptionUsage {
         if unrecognizedOptions.count > 0 {
             message += "Unrecognized options:"
             for option in unrecognizedOptions {
-                let length = option.characters.count
+                let length = option.count
                 let spacing = String(repeating: " ", count: maxSpacing - length)
                 message += "\n\(spacing)\(option)"
             }
@@ -180,7 +180,7 @@ public struct IncorrectOptionUsage {
                     groupKey = "[\(group.key)]"
                 
                 }
-                let length = (groupKey.characters.count + 1)
+                let length = (groupKey.count + 1)
                 let spacing = String(repeating: " ", count: maxSpacing - length)
                 message += "\n\(groupKey):\(spacing)\(groupKeys)"
                 

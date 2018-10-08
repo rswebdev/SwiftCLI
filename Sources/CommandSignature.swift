@@ -40,7 +40,7 @@ public class DefaultCommandSignature: CommandSignature {
                 continue
             }
             
-            let parameterRange = NSRange(location: 0, length: parameter.characters.count)
+            let parameterRange = NSRange(location: 0, length: parameter.count)
             
             if requiredRegex.numberOfMatches(in: parameter, options: [], range: parameterRange) > 0 {
                 assert(optionalParameters.count == 0, "All required parameters must come before any optional parameter.")

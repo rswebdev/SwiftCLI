@@ -53,7 +53,7 @@ public class DefaultHelpCommand: HelpCommand {
     }
     
     func printCommand(_ command: Command) {
-        let spacing = String(repeating: " ", count: 40 - command.name.characters.count)
+        let spacing = String(repeating: " ", count: 40 - command.name.count)
         print("- \(command.name)\(spacing)\(command.shortDescription)")
     }
     

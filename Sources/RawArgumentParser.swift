@@ -19,7 +19,7 @@ public class DefaultRawArgumentParser: RawArgumentParser {
     public func parse(stringArguments: [String]) -> [RawArgument] {
         let adjustedArguments = stringArguments.flatMap { (argument) -> [String] in
             if argument.hasPrefix("-") && !argument.hasPrefix("--") {
-                return argument.characters.dropFirst().map { "-\($0)" } // Turn -am into -a -m
+                return argument.dropFirst().map { "-\($0)" } // Turn -am into -a -m
             }
             return [argument]
         }
