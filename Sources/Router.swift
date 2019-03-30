@@ -35,7 +35,7 @@ public class DefaultRouter: Router {
             
             while tempArray.contains(itemToRemove) {
                 
-                if let itemToRemoveIndex = tempArray.index(of: itemToRemove) {
+                if let itemToRemoveIndex = tempArray.firstIndex(of: itemToRemove) {
                     tempArray.remove(at: itemToRemoveIndex)
                     var newValues: [String] = []
                     for component in matchingName {

@@ -11,7 +11,9 @@ internal class OptionGroup: Hashable, Equatable {
     ///
     /// Hash values are not guaranteed to be equal across different executions of
     /// your program. Do not save hash values to use during a future execution.
-    public var hashValue: Int
+	public func hash(into hasher: inout Hasher) {
+		hasher.combine(name)
+	}
 
     /// Returns a Boolean value indicating whether two values are equal.
     ///
@@ -30,7 +32,6 @@ internal class OptionGroup: Hashable, Equatable {
     public var conflicting: Bool
     
     public init(name: String, required: Bool = false, conflicting: Bool = true) {
-        self.hashValue = name.hashValue
         self.name = name
         self.required = required
         self.conflicting = conflicting
