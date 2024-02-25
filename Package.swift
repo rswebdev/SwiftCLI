@@ -5,7 +5,7 @@ let package = Package(
 	name: "SwiftCLI",
 	products: [
 		.library(
-			name: "SWiftCLI",
+			name: "SwiftCLI",
 			targets: ["SwiftCLI"]
 			),
 	],
